@@ -19,21 +19,25 @@ const myReducer = (state = reducerInitialState, action) => {
     if (action.type === 'increaseSpeed') {
         console.log('increasingSpeedInReducer');
         state.speed += 1; 
-        console.log('new state.Speed is', state.speed);
-        
+        console.log('new state.Speed is', state.speed, state);
+       
         
     } else if (action.type === 'decreaseSpeed') {
         console.log('decreasingSpeedInReducer');
         state.speed -= 1; 
-        console.log('new state.Speed is', state.speed);
+        console.log('new state.Speed is', state.speed, state);
+         
         
     } else if (action.type === 'addToArray') {
         console.log('in addToArray on Index', action.payload);
         state.passengers = [...state.passengers, action.payload];
-        console.log('Current state', state.passengers);
+        console.log('Current state', state.passengers, state);
+        
         
         
     }
+
+   return state; 
      
 
 }

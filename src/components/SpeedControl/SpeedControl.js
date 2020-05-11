@@ -30,7 +30,8 @@ class SpeedControl extends Component {
         <h2>Speed Control</h2>
 
         <button onClick={this.handleIncrease}>Increase Speed</button>
-        <p>{JSON.stringify(this.props.reduxState)}</p>
+        {/* <p>{JSON.stringify(this.props.reduxState.speed)}</p>  */}
+        <p> {this.props.reduxState.speed} </p>
         <button onClick= {this.handleDecrease}>Decrease Speed</button>
       </div>
     )

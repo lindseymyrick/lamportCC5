@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PassengerItem from '../PassengerItem/PassengerItem'; 
 // THIS COMPONENT IS OUR INTERFACE FOR PASSENGER CHECK IN
 // YOU SHOULD DISPLAY THE CURRENT PASSENGERS
 // INPUT SHOULD COLLECT INFO, BUTTON SHOULD ADD THEM TO THE LIST
@@ -34,7 +35,7 @@ class Passengers extends Component {
         <input type="text" name="name" placeholder="Enter Name" onChange= {this.handleChange} />
         <button onClick = {this.handleClick}>Add Passenger</button>
 
-        <ul>PASSENGER LIST: GOES HERE</ul>
+        <ul>{this.props.reduxState.passengers.map(item => <PassengerItem item ={item} reduxState = {this.props.reduxState} />)} </ul>
         
       
       </div>
