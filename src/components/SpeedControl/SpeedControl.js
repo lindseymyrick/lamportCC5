@@ -4,14 +4,34 @@ import React, { Component } from 'react';
 // BUTTONS SHOULD INCREASE OR DECREASE SPEED, RESPECTIVELY
 
 class SpeedControl extends Component {
+
+
+
+  handleIncrease = () => {
+    console.log('in handleIncrease');
+    this.props.dispatch({
+      type: 'increaseSpeed'
+    })
+  
+
+  }
+
+  handleDecrease = () => {
+    console.log('in handleDecrease');
+    this.props.dispatch({
+      type: 'decreaseSpeed'
+    })
+
+  }
+
   render() {
     return (
       <div>
         <h2>Speed Control</h2>
 
-        <button>Increase Speed</button>
-        <p>SPEED: GOES HERE</p>
-        <button>Decrease Speed</button>
+        <button onClick={this.handleIncrease}>Increase Speed</button>
+        <p>{JSON.stringify(this.props.reduxState)}</p>
+        <button onClick= {this.handleDecrease}>Decrease Speed</button>
       </div>
     )
   }

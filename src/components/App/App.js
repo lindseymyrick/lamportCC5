@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import reduxLogo from './redux.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import {connect} from 'react-redux'; 
+import { connect } from 'react-redux';
 
 // components
 import SpeedControl from '../SpeedControl/SpeedControl';
@@ -12,6 +12,13 @@ import Dashboard from '../Dashboard/Dashboard';
 
 
 class App extends Component {
+
+  componentDidMount() {
+    console.log('REDUX STATE APP', this.props.reduxState);
+    
+  }
+
+
   render() {
     return (
       <Router>
@@ -30,9 +37,9 @@ class App extends Component {
             </header>
 
             <div className="content-container">
-              <Route exact path="/" component={SpeedControl} />
-              <Route path="/passengers" component={Passengers} />
-              <Route path="/dashboard" component={Dashboard} />
+            <Route exact path="/" render={(props) => <SpeedControl {...props} dispatch={this.props.dispatch} reduxState={this.props.reduxState} />} />
+            <Route path="/passengers" render={(props) => <Passengers {...props} dispatch={this.props.dispatch} reduxState={this.props.reduxState} />} />
+            <Route path="/dashboard" render={(props) => <Dashboard {...props} dispatch={this.props.dispatch} reduxState={this.props.reduxState} />} />
             </div>
 
           </div>
